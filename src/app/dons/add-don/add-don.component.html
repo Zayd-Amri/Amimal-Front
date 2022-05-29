@@ -1,0 +1,12 @@
+<form [formGroup]="donForm" (ngSubmit)="onSubmit()">
+
+<label for="label">label: </label><br><br>
+<input id="label" type="text" formControlName="label">
+<br><br>
+<label for="montant">montant: </label><br><br>
+<input id="montant" type="number" formControlName="montant">
+<br><br>
+<label for="userId">userId: </label><br><br>
+<input id="userId" type="number" formControlName="userId">
+<button>submit</button>
+</form>

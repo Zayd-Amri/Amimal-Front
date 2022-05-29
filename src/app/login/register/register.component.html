@@ -1,0 +1,94 @@
+<main>
+  <div class="container-fluid container-wrapper">
+    <div class="row h-100">
+      <div class="col-sm-6 login-section-wrapper pt-4">
+        <div class="d-flex justify-content-center">
+        <div>
+          <a [routerLink]="['/login/']"><fa-icon [icon]="faArrowLeft"></fa-icon></a>
+        <div class="login-wrapper my-auto">
+          <h1 class="login-title">S'enregistrer</h1>
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group mb-4">
+              <label for="email">Email</label>
+              <input name="email" formControlName="email" type="email" id="email" class="form-control"
+                placeholder="email@example.com" required>
+                <span class="text-danger"
+                *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.required">
+                Email requis
+              </span>
+              <span class="text-danger"
+                *ngIf="registerFormControl.email.touched && registerFormControl.email.errors?.email">
+                entrez une adresse email valide
+              </span>
+            </div>
+            <div class="form-group mb-4">
+              <label for="password">Mot de passe</label>
+              <input name="password" formControlName="password" type="password" id="password" class="form-control"
+                placeholder="Entrez votre mot de passe" required>
+              <span class="text-danger"
+                *ngIf="(registerFormControl.password.touched || submitted) && registerFormControl.password.errors?.required">
+                Mot de passe requis
+              </span>
+              <span class="text-danger"
+                *ngIf="registerFormControl.password.touched && registerFormControl.password.errors?.invalidPassword">
+                Le mot de passe doit contenir au moins 8 caractères, au moins 1 lettre majuscule, 1 minuscule
+                lettre et 1 chiffre
+              </span>
+            </div>
+            <div class="form-group mb-4">
+              <label for="password">Confirmez le mot de passe</label>
+              <input name="confirmPassword" formControlName="confirmPassword" type="password" id="confirmPassword"
+                class="form-control" placeholder="confirmez votre mot de passe" required>
+            </div>
+            <span class="text-danger"
+              *ngIf="registerFormControl.confirmPassword.touched && registerFormControl.confirmPassword.errors?.passwordMismatch">
+              Les mots de passe ne correspondent pas
+            </span>
+            <div class="form-group mb-4">
+              <label for="nom">Nom</label>
+              <input name="nom" formControlName="nom" type="string" id="nom" class="form-control"
+                placeholder="Entrez votre nom" required>
+                <span class="text-danger"
+                *ngIf="(registerFormControl.nom.touched || submitted) && registerFormControl.nom.errors?.required">
+                Nom requis
+              </span>
+            </div>
+            <div class="form-group mb-4">
+              <label for="prenom">Prénom</label>
+              <input name="prenom" formControlName="prenom" type="string" id="prenom" class="form-control"
+                placeholder="Entrez votre Prénom" required>
+                <span class="text-danger"
+                *ngIf="(registerFormControl.prenom.touched || submitted) && registerFormControl.prenom.errors?.required">
+                Prénom requis
+              </span>
+            </div>
+            <div class="form-group mb-4">
+              <label for="age">Age</label>
+              <input name="age" formControlName="age" type="number" id="age" class="form-control"
+                placeholder="Entrez votre age" required>
+                <span class="text-danger"
+                *ngIf="(registerFormControl.age.touched || submitted) && registerFormControl.age.errors?.required">
+                Age requis
+              </span>
+            </div>
+            <div class="form-group mb-4">
+              <label for="adresse">Adresse</label>
+              <input name="adresse" formControlName="adresse" type="string" id="adresse" class="form-control"
+                placeholder="Entrez votre nom" required>
+                <span class="text-danger"
+                *ngIf="(registerFormControl.adresse.touched || submitted) && registerFormControl.adresse.errors?.required">
+                Adresse requise
+              </span>
+            </div>
+            <button class="btn btn-block login-btn w-100">S'enregistrer</button>
+          </form>
+        </div>
+      </div>
+      </div>
+      </div>
+      <div class="col-sm-6 px-0 d-none d-sm-block img-cover">
+        
+      </div>
+    </div>
+  </div>
+</main>

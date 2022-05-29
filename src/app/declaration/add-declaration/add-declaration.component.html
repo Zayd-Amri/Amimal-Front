@@ -1,0 +1,75 @@
+<div class="jumbotron">
+  
+  <h1>Ajouter une declaration</h1>
+  </div>
+  <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Succés!</strong> declaration ajouté avec succés
+    
+  </div>
+
+  <form [formGroup]="declaration" (ngSubmit)="createDeclaration()" class="was-validated">
+
+    <div class="row">
+    <div class="col-md-6">
+      <label  class="form-label">Titre</label>
+      <input type="text" class="form-control" id="inputAddress" formControlName="titre" required>
+      <span class="error" *ngIf="declaration.get('titre').invalid && declaration.get('titre').touched">Entrez le titre!!</span>
+    </div>
+    <div class="mb-3 col-md-6">
+      <label for="validationTextarea" class="form-label">Description</label>
+      <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Description de situation de l'animal"  formControlName="description"></textarea>
+      
+    </div>
+    <div class="mb-3 col-md-6">
+      <select class="form-control" name="gouvernorat" id="gouvernorat" formControlName ="gouvernorat" required>
+        <option value="" >-- Gouvernorat --</option>
+        <option value="{{gov}}" *ngFor="let gov of govValue" >{{gov}}</option>
+
+      </select>
+      <span class="error" *ngIf="declaration.get('gouvernorat').invalid && declaration.get('gouvernorat').touched">Choisissez un gouvernorat!!</span>
+
+      
+    </div>
+    <div class="mb-3 col-md-6">
+      <select class="form-control" required aria-label="select example" formControlName ="type">
+        <option value="">Aucun</option>
+        <option value="Chat">Chat</option>
+        <option value="Chien">Chien</option>
+        <option value="Lapin">Lapin</option>
+        <option value="Autre">Autre</option>
+
+      </select>
+      <span class="error" *ngIf="declaration.get('type').invalid && declaration.get('type').touched">Choisissez l'espece!!</span>
+
+    </div>
+    <div class="col-md-6">
+      <label  class="form-label">longitude</label>
+      <input type="number" step="0.000000001" class="form-control" id="inputPassword4" formControlName ="longitude" >
+    </div>
+    <div class="col-md-6">
+      <label  class="form-label">latitude</label>
+      <input type="number" step="0.000000001" class="form-control" id="inputAddress" formControlName ="latitude" >
+    </div>
+    <div class="mb-3 col-md-6">
+      <button class="btn btn-primary" type="button" (click)="onLocation()" >Position</button>
+    </div>
+    <div class="col-md-6">
+    <form [formGroup]="uploadForm"  class="was-validated"> 
+    <div class="mb-3">
+      <label  class="form-label">Image de l'animal</label>
+
+      <input type="file" class="form-control" aria-label="file example" name ="image" (change)="onFileSelected($event)" #fileUpload>
+      
+      <div *ngIf="alertUpload" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Succés!</strong> image uploaded
+        
+      </div>
+    </div>
+  </form>
+</div>
+    <div class="mb-3 col-md-12">
+      <button class="btn btn-primary" type="submit" >Envoyer</button>
+    </div>
+  </div>
+
+  </form>

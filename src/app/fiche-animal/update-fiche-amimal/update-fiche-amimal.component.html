@@ -1,0 +1,71 @@
+<br> <br>
+<form [formGroup]="updateForm" (ngSubmit)="updateFiche()">
+    <div class="col-md-6">
+    <div class="form-group">
+        <label for="nom" class="form-label">Nom:</label>
+        <input type="text" formControlName="nom" class="form-control">
+        <span class="alert alert-danger" *ngIf="updateForm.get('nom').invalid && updateForm.get('nom').touched">Le champs nom est obligatoire et il doit contenir que des lettres</span>
+        <span class="alert alert-success" *ngIf="updateForm.get('nom').valid && updateForm.get('nom').touched">Validé</span>
+    </div>
+    <div class="form-group">
+        <label for="age" class="form-label">Age:</label>
+        <select formControlName="age" class="form-select">
+            <option value="0-1">0-1 mois</option>
+            <option value="2-6">2-6 mois</option>
+            <option value="7-12">7-12 mois</option>
+            <option value="13-18">13-18 mois</option>
+            <option value="19-24">19-24 mois</option>
+            <option value="25-36">25-36 mois</option>
+            <option value="37-48">37-48 mois</option>
+            <option value="49-60">49-60 mois</option>
+            <option value="61-72">61-72 mois</option>
+            <option value="72+">72+ mois</option>
+        </select>
+        <span class="alert alert-danger" *ngIf="updateForm.get('age').invalid && updateForm.get('age').touched">Le champs age est obligatoire</span>
+        <span class="alert alert-success" *ngIf="updateForm.get('age').valid && updateForm.get('age').touched">Validé</span>
+    </div>
+    <div class="form-group">
+        <label for="espece" class="form-label">Espèce:</label>
+        <select formControlName="espece" class="form-select">
+            <option value="chien">Chien</option>
+            <option value="chat">Chat</option>
+            <option value="lapin">Lapin</option>
+            <option value="autre">Autre</option>
+        </select>
+        <span class="alert alert-danger" *ngIf="updateForm.get('espece').invalid && updateForm.get('espece').touched">Le champs espèce est obligatoire</span>
+        <span class="alert alert-success" *ngIf="updateForm.get('espece').valid && updateForm.get('espece').touched">Validé</span>
+    </div>
+    <div class="form-group">
+        <label for="race" class="form-label">Race:</label>
+        <input type="text" formControlName="race" class="form-control">
+        <span class="alert alert-danger" *ngIf="updateForm.get('race').invalid && updateForm.get('race').touched">Le champs race est obligatoire et il doit contenir que des lettres</span>
+        <span class="alert alert-success" *ngIf="updateForm.get('race').valid && updateForm.get('race').touched">Validé</span>
+    </div>
+    <div class="form-group">
+        <label for="couleur" class="form-label">Couleur:</label>
+        <input type="text" formControlName="couleur" class="form-control">
+        <span class="alert alert-danger" *ngIf="updateForm.get('couleur').invalid && updateForm.get('couleur').touched">Le champs couleur est obligatoire et il doit contenir que des lettres</span>
+        <span class="alert alert-success" *ngIf="updateForm.get('couleur').valid && updateForm.get('couleur').touched">Validé</span>
+    </div>
+    <div class="form-group">
+        <label for="etat" class="form-label">Etat:</label>
+        <select formControlName="etat" class="form-select">
+            <option value="perdu">Perdu</option>
+            <option value="à adopter">à adopter</option>
+            <option value="adopté">Adopté</option>
+        </select> 
+        <span class="alert alert-danger" *ngIf="updateForm.get('etat').invalid && updateForm.get('etat').touched">Le champs état est obligatoire</span>
+        <span class="alert alert-success" *ngIf="updateForm.get('etat').valid && updateForm.get('etat').touched">Validé</span>
+    </div>
+    <div class="form-group">
+        <label for="sexe" class="form-label">Sexe:</label>
+        <select formControlName="sexe" class="form-select">
+            <option value="male">Mâle</option>
+            <option value="femelle">Femelle</option>
+        </select> 
+        <span class="alert alert-danger" *ngIf="updateForm.get('sexe').invalid && updateForm.get('sexe').touched">Le champs sexe est obligatoire</span>
+        <span class="alert alert-success" *ngIf="updateForm.get('sexe').valid && updateForm.get('sexe').touched">Validé</span>
+    </div>
+        <button type="submit" class="btn btn-primary" [disabled]="updateForm.invalid">Modifier</button>
+    </div>
+    </form>

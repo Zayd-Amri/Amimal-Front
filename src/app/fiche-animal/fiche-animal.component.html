@@ -1,0 +1,281 @@
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  <br><br>
+
+  <a href="/administration/"  class="btn btn-sucess">Administration</a>
+  <a [routerLink]="['/fiche-animal/']"  class="btn btn-sucess">Fiche animal</a>
+  <a [routerLink]="['/refuges/']"  class="btn btn-sucess">Refuges</a>
+  
+<br><br><br>
+<br>
+<section class="search-sec" style="margin-top: 20px;">
+    <div class="container">
+        <form [formGroup]="searchForm">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 p-0">
+                            <select class="form-control search-slt" formControlName="critere" placeholder="Veuillez entrer le critère de recherche">
+                              <option value="age" selected>Age</option>
+                              <option value="espece">Espèce</option>
+                              <option value="race">Race</option>
+                              <option value="etat">Etat</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 p-0">
+                          <input type="text" class="form-control search-slt" formControlName="recherche" placeholder="Veuillez entrer votre recherche">
+                      </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 p-0">
+                            <button type="button" class="btn btn-danger wrn-btn" (click)="recherche()" style="margin-top: 0px;">Rechercher</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+
+
+
+<br><div class="container-fluid">
+  <div class="row">
+<div class="col-md-9 left">
+<div *ngIf="role=='ROLE_ADMIN'">
+<button (click)="open(content)" class="btn btn-success" style="margin-left: 10px;"> Ajouter</button>
+</div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" style="color:crimson;">Ajouter une fiche animal </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body" style="height: 950px; width:500px;">
+        <form [formGroup]="addForm" (ngSubmit)="createFiche()">
+  
+          <div class="form-group">
+            <label class="form-label">Nom</label>
+            <input class="form-control" type="text" formControlName="nom" placeholder="Nom">
+            <span class="alert alert-danger" *ngIf="addForm.get('nom').invalid && addForm.get('nom').touched">Le champs nom est obligatoire et il doit contenir que des lettres</span>
+            <span class="alert alert-success" *ngIf="addForm.get('nom').valid && addForm.get('nom').touched">Validé</span>
+          </div>
+ 
+
+
+          <div class="form-group">
+            <label class="form-label">Age</label>
+              <select class="form-select" formControlName="age">
+                <option value="0-1" selected>0-1 mois</option>
+                <option value="2-6">2-6 mois</option>
+                <option value="7-12">7-12 mois</option>
+                <option value="13-18">13-18 mois</option>
+                <option value="19-24">19-24 mois</option>
+                <option value="25-36">25-36 mois</option>
+                <option value="37-48">37-48 mois</option>
+                <option value="49-60">49-60 mois</option>
+                <option value="61-72">61-72 mois</option>
+                <option value="72+">72+ mois</option>
+              </select>
+              <span class="alert alert-danger" *ngIf="addForm.get('age').invalid && addForm.get('age').touched">Le champs age est obligatoire</span>
+              <span class="alert alert-success" *ngIf="addForm.get('age').valid && addForm.get('age').touched">Validé</span>
+            </div>
+
+ 
+          <div class="form-group">
+            <label class="form-label">Espèce</label>
+              <select class="form-select" formControlName="espece">
+                <option value="chat" selected>Chat</option>
+                <option value="chien">Chien</option>
+                <option value="lapin">Lapin</option>
+                <option value="autre">Autre</option>
+              </select>
+              <span class="alert alert-danger" *ngIf="addForm.get('espece').invalid && addForm.get('espece').touched">Le champs espèce est obligatoire</span>
+              <span class="alert alert-success" *ngIf="addForm.get('espece').valid && addForm.get('espece').touched">Validé</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Race</label>
+            <input class="form-control" type="text" formControlName="race" placeholder="Race">
+            <span class="alert alert-danger" *ngIf="addForm.get('race').invalid && addForm.get('race').touched">Le champs race doit contenir que des lettres</span>
+            <span class="alert alert-success" *ngIf="addForm.get('race').valid && addForm.get('race').touched">Validé</span>
+          </div>
+            
+          <div class="form-group">
+            <label class="form-label">Couleur</label>
+            <input class="form-control" type="text" formControlName="couleur" placeholder="Couleur">
+            <span class="alert alert-danger" *ngIf="addForm.get('couleur').invalid && addForm.get('couleur').touched">Le champs couleur est obligatoire et il doit contenir que des lettres</span>
+            <span class="alert alert-success" *ngIf="addForm.get('couleur').valid && addForm.get('couleur').touched">Validé</span>
+          </div>
+
+
+          <div class="form-group">
+            <label class="form-label">Etat</label>
+              <select class="form-select" formControlName="etat">
+                <option value="perdu" selected>Perdu</option>
+                <option value="adopté">Adopté</option>
+                <option value="à adopter">à adopter</option>
+              </select>
+              <span class="alert alert-danger" *ngIf="addForm.get('etat').invalid && addForm.get('etat').touched">Le champs état est obligatoire</span>
+              <span class="alert alert-success" *ngIf="addForm.get('etat').valid && addForm.get('etat').touched">Validé</span>
+            </div>
+
+
+          <div class="form-group">
+            <label class="form-label">Sexe</label>
+              <select class="form-select" formControlName="sexe">
+                <option value="mâle" selected>Mâle</option>
+                <option value="femelle">Femelle</option>
+              </select>
+              <span class="alert alert-danger" *ngIf="addForm.get('sexe').invalid && addForm.get('sexe').touched">Le champs sexe est obligatoire</span>
+              <span class="alert alert-success" *ngIf="addForm.get('sexe').valid && addForm.get('sexe').touched">Validé</span>
+            </div>
+            <div class="form-group">
+            <label class="form-label">Refuge</label>
+            <select class="form-select" formControlName="refuge">
+                <option value="api/refuges/{{refuge.id}}" *ngFor="let refuge of listRefuges"> {{refuge.id}} - {{refuge.ville}}, {{refuge.pays}}</option>
+            </select>
+            </div>
+           <!-- <form [formGroup]="uploadForm">
+            <input type="file" class="form-control" aria-label="file example" formControlName="image" (change)="onFileSelected($event)" #fileUpload>
+            </form> -->
+            <form [formGroup]="uploadForm"  class="was-validated">
+              <div class="mb-3">
+                <label  class="form-label">Image</label>
+            
+                <input type="file" class="form-control" aria-label="file example" name ="image" (change)="onFileSelected($event)" #fileUpload>
+            
+                <div *ngIf="alertUpload" class="alert alert-success alert-dismissible fade show" role="alert">
+                  <strong>Succés!</strong> image uploaded
+            
+                </div>
+              </div>
+            </form>
+            <button type="submit" class="btn btn-primary" [disabled]="addForm.invalid">Ajouter</button>
+
+          </form>
+      </div>
+ 
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<br>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 gutters-sm">
+  <div *ngFor="let fiche of listFiches">
+  <div class="col mb-3">
+    <div class="card">
+      <div class="card-body text-center">
+        <a [routerLink]="['detail-fiche-animal/', fiche.id]">  <img src={{fiche.image}} style="width:150px; height:150px;" alt="animal" class="img-fluid img-thumbnail rounded-circle border-0 mb-3"></a>
+        <h5 class="card-title">{{fiche.nom}}</h5>
+        <p class="text-secondary mb-1">{{fiche.age}} mois</p>
+        <p class="text-muted font-size-sm">{{fiche.espece}} {{fiche.etat}}</p>
+      </div>
+      <div class="card-footer" id="footer">
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{fiche.image}}&quote={{fiche.nom}},{{fiche.espece}}+{{fiche.etat}}+ayant+{{fiche.age}}+mois"><i class="fa fa-facebook"></i></a>
+          <a href="https://www.twitter.com/share?url={{fiche.image}}&text={{fiche.nom}},{{fiche.espece}}+{{fiche.etat}}+ayant+{{fiche.age}}+mois"><i class="fa fa-twitter"></i></a>
+          <button class="btn btn-primary" id="adopter" [disabled]="fiche.etat=='perdu'||fiche.etat=='adopté'" (click)="createAdoption(fiche.id)"> Adopter</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="col-md-3 right">
+<br><br>
+<br><br><br><br>
+<ul class="widget widget-usage unstyled span4">
+  <li>
+  <h2 style="color:palevioletred;"> Nombre total des animaux: {{nbAnimaux}} </h2> 
+</li>
+  <li>
+    
+      <p>
+          <strong>Chiens</strong> <span class="pull-right muted">{{nbChien}}</span>
+      </p>
+      <div class="progress tight">
+          <div class="bar" id="chien" style="background-color: red;">
+          </div>
+      </div>
+  </li>
+  <li>
+      <p>
+          <strong>Chats</strong> <span class="pull-right muted">{{nbChat}}</span>
+      </p>
+      <div class="progress tight">
+          <div class="bar bar-success" id="chat" style="background-color: yellow;">
+          </div>
+      </div>
+  </li>
+  <li>
+      <p>
+          <strong>Lapins</strong> <span class="pull-right muted">{{nbLapin}}</span>
+      </p>
+      <div class="progress tight">
+          <div class="bar bar-warning" id="lapin" style="background-color: green;">
+          </div>
+      </div>
+  </li>
+  <li>
+      <p>
+          <strong>Autre</strong> <span class="pull-right muted">{{nbAutre}}</span>
+      </p>
+      <div class="progress tight">
+          <div class="bar bar-danger" id="autre" style="background-color: blue;">
+          </div>
+      </div>
+  </li>
+  <br><br><br><br>
+  <br><br><br><br>
+  <br><br>
+
+  <li>
+    
+    <p>
+        <strong>Animaux perdus</strong> <span class="pull-right muted">{{nbperdu}}</span>
+    </p>
+    <div class="progress tight">
+        <div class="bar" id="perdu" style="background-color: purple;">
+        </div>
+    </div>
+</li>
+
+<li>
+    
+  <p>
+      <strong>Animaux adoptés</strong> <span class="pull-right muted">{{nbadopte}}</span>
+  </p>
+  <div class="progress tight">
+      <div class="bar" id="adopte" style="background-color: pink;">
+      </div>
+  </div>
+</li>
+
+<li>
+    
+  <p>
+      <strong>Animaux à adopter</strong> <span class="pull-right muted">{{nbaadopter}}</span>
+  </p>
+  <div class="progress tight">
+      <div class="bar" id="aadopter" style="background-color: orangered;">
+      </div>
+  </div>
+</li>
+</ul>
+</div>
+</div>
+</div>

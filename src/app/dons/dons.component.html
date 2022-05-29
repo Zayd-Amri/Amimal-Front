@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>form</h1>
+        <a [routerLink]="['add-don/']" > Add</a>
+        <div *ngFor="let don of listDons">
+            {{don.user.id}}
+            {{don.label}}
+            {{don.montant}}
+            <a [routerLink]="['detail-don/', don.id]" > View details</a>
+            <a [routerLink]="['delete-don/', don.id]" > delete</a>
+        </div>
+    </div>
+</div>

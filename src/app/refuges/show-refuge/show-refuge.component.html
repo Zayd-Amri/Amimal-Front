@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div class="container">
+      <br><br>
+        <div class="row">
+            <div class="col-md-7">
+    
+                <div class="project-info-box">
+                    <p><b>Ville: </b>{{data.ville}}</p>
+                    <p><b>Pays:</b> {{data.pays}}</p>
+                    <p><b>Téléphone: </b> {{data.telephone}}</p>
+                    <p><b>Latitude: </b> {{data.latitude}}</p>
+                    <p><b>Longitude: </b> {{data.longitude}}</p>
+                    <p><b>Nombre total des animaux: </b> {{nbAnimaux}}</p>
+                    <div *ngIf="role=='ROLE_ADMIN'">
+                    <a [routerLink]="['/refuges/update-refuge/', data.id]" id="update"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a [routerLink]="['/refuges/delete-refuge/', data.id]" id="delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    </div>
+                </div><!-- / project-info-box -->
+            </div><!-- / column -->
+            <div class="col-md-5">
+                <img src="https://www.makethegrade.fr/wp-content/uploads/2020/12/conquerir-marche-niche-b2B.png">
+            </div>
+        </div>
+    </div>

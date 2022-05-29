@@ -1,0 +1,157 @@
+/*search box css start here*/
+.search-sec{
+  padding: 2rem;
+}
+.search-slt{
+  display: block;
+  width: 100%;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #55595c;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  height: calc(3rem + 2px) !important;
+  border-radius:0;
+}
+.wrn-btn{
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: capitalize;
+  height: calc(3rem + 2px) !important;
+  border-radius:0;
+}
+@media (min-width: 992px){
+  .search-sec{
+      position: relative;
+      top: -114px;
+      background: rgba(26, 70, 104, 0.51);
+  }
+}
+
+@media (max-width: 992px){
+  .search-sec{
+      background: #1A4668;
+  }
+}
+
+  a{
+    font-size: 35px;
+    margin-bottom: 40px;
+  }
+  #delete{
+    color:red;
+  }
+  #update{
+    color:yellow;
+  }
+  a:hover{
+    font-size: 45px;
+  }
+  #adopter:hover{
+background-color: green;
+  }
+  #adopter{
+    margin-left: 70px;
+  }
+  #footer{
+margin-top: 30px;
+  }
+
+
+
+  /* Style all font awesome icons */
+.fa {
+  padding: 10px;
+  font-size: 30px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+  border-radius: 50%;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+  border-radius: 50%;
+
+}
+.container{
+  background: rgba(0, 0, 0, 0.5);
+  height:90px;
+  margin-top:5%;
+}
+a{
+  font-size: 35px;
+  margin-bottom: 40px;
+}
+#delete{
+  color:red;
+}
+#update{
+  color:yellow;
+}
+a:hover{
+  font-size: 45px;
+}
+#adopter:hover{
+background-color: green;
+}
+#adopter{
+  margin-top: 10px;
+  margin-left: 70px;
+}
+#footer{
+margin-top: 30px;
+}
+
+
+.progress {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background:#f6f6f6;
+}
+.progress .bar {
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	 background-color: #428bca;
+}
+.progress.tight {
+	height: 10px
+}
+.progress.stacked .bar {
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0
+}
+.progress.stacked .bar+.bar {
+	margin-left: -1px
+}
+.progress.stacked .bar:first-child {
+	-webkit-border-radius: 2px 0 0 2px;
+	-moz-border-radius: 2px 0 0 2px;
+	border-radius: 2px 0 0 2px
+}
+.progress.stacked .bar:last-child {
+	-webkit-border-radius: 0 2px 2px 0;
+	-moz-border-radius: 0 2px 2px 0;
+	border-radius: 0 2px 2px 0
+}

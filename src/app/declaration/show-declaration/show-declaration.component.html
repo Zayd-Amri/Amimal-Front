@@ -1,0 +1,36 @@
+<div class="main-container">
+    <div class="heading-container">
+      <h1 class="heading">Liste des declarations</h1>
+      <button class="btn btn-primary" (click)="onCreate()">Ajouter une declaration</button>
+     
+    </div>
+
+
+    <div class="container" >
+      <div class="card" *ngFor="let declaration of declarations">
+        <div class="card-header image-declaration" *ngIf="declaration.image?.length;else placeholder">
+          <img src={{declaration.image}} alt="rover" />
+        </div>
+        <ng-template #placeholder>
+          <img src="assets/chien-chat.jpg" alt="rover" />
+        </ng-template>
+        <div class="card-body">
+          <span class="tag tag-teal">{{declaration.type}}</span>
+          <h4>
+            {{declaration.emplacement}}
+          </h4>
+          <p>
+            {{declaration.description}}
+          </p>
+          
+        </div>
+        <p class="card__apply"><a [routerLink]="['/show-one-declaration', declaration.id]">Show <i class="fas fa-arrow-right"></i></a><a [routerLink]="['/update-declaration', declaration.id]">Update <i class="fas fa-arrow-right"></i></a><a href="">Delete <i class="fas fa-arrow-right"></i></a></p>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+

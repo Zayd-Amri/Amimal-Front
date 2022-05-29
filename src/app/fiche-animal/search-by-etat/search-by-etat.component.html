@@ -1,0 +1,28 @@
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<br>
+<br>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gutters-sm">
+  <div *ngFor="let fiche of listFiches">
+  <div class="col mb-3">
+    <div class="card">
+      <div style="height: 70px;"></div>
+      <div class="card-body text-center">
+        <a [routerLink]="['/fiche-animal/detail-fiche-animal/', fiche.id]">  <img src={{fiche.image}} style="width:150px; height:150px;" alt="Refuge" class="img-fluid img-thumbnail rounded-circle border-0 mb-3"></a>
+        <h5 class="card-title">{{fiche.nom}}</h5>
+        <p class="text-secondary mb-1">{{fiche.age}} mois</p>
+        <p class="text-muted font-size-sm">{{fiche.espece}} {{fiche.etat}}</p>
+      </div>
+      <div class="card-footer" style="height: 70px;">
+        <a [routerLink]="['/fiche-animal/update-fiche-animal/', fiche.id]"> <i class="material-icons" style="color:orange; font-size: 35px; margin-top: 10px; ">mode_edit_outline </i></a>
+          <a [routerLink]="['/fiche-animal/delete-fiche-animal/', fiche.id]"><i class="material-icons" style="color:red; font-size: 35px;">delete            </i></a>
+        <i class="material-icons" style="color:#ff748c; font-size: 35px; margin-left: 50px;"> favorite_border  </i>
+        <i class="material-icons" style="color:blue; font-size: 35px; margin-right: 0px;">mode_comment      </i>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<br>

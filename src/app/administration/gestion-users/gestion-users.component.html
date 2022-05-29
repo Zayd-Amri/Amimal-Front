@@ -1,0 +1,63 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Liste users</h4>
+                        <p class="card-category"> Here is a subtitle for this table</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Nom
+                                    </th>
+                                    <th>
+                                        Prenom
+                                    </th>
+                                    <th>
+                                        Adresse
+                                    </th>
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                        Role
+                                    </th>
+                                    <th></th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let user of usersList">
+                                        <td>
+                                            {{user?.nom}}
+                                        </td>
+                                        <td>
+                                            {{user?.prenom}}
+                                        </td>
+                                        <td>
+                                            {{user?.adresse}}
+                                        </td>
+                                        <td>
+                                            {{user?.email}}
+                                        </td>
+                                        <td class="text-primary">
+                                            {{user?.roles}}
+                                        </td>
+                                        <td>
+                                            <a [routerLink]="['/administration/update-user/', user.id]" class="btn bg-transparent text-warning b-sh-none mr-2"><fa-icon [icon]="faEdit"></fa-icon></a>
+                                            <a (click)="deleteUser(user.id)" class="btn bg-transparent text-danger b-sh-none"><fa-icon [icon]="faTrash"></fa-icon></a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

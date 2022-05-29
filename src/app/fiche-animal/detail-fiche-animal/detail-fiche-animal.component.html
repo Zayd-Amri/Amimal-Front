@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+
+            <div class="project-info-box">
+                <p><b>Nom: </b>{{data.nom}}</p>
+                <p><b>Age: </b>{{data.age}} mois</p>
+                <p><b>Espèce:</b> {{data.espece}}</p>
+                <p><b>Race: </b> {{data.race}}</p>
+                <p><b>Couleur: </b> {{data.couleur}}</p>
+                <p><b>Sexe: </b> {{data.sexe}}</p>
+                <p><b>Etat: </b> {{data.etat}}</p>
+                <div *ngIf="data.etat=='à adopter'">
+                <p><b>Refuge: </b>{{refugeDetails.ville}},{{refugeDetails.pays}}</p>
+                </div>
+                <div *ngIf="role=='ROLE_ADMIN'">
+                <a [routerLink]="['/fiche-animal/update-fiche-animal/', data.id]" id="update"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                <a [routerLink]="['/fiche-animal/delete-fiche-animal/', data.id]" id="delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                <p><b>Ville du refuge: </b> {{refugeDetail.ville}}</p>
+                <agm-map [latitude]="37" [longitude]="10">
+                    <agm-marker [latitude]="refugeDetail.latitude" [longitude]="refugeDetail.longitude">
+                        <agm-info-window #infoWindow>
+                            <p><b>Ville: </b>{{refugeDetail.ville}}</p>
+                            <p><b>Pays:</b> {{refugeDetail.pays}}</p>
+                            <p><b>Téléphone: </b> {{refugeDetail.telephone}}</p>
+                            <p><b>Longitude: </b> {{refugeDetail.longitude}}</p>
+                            <p><b>Latitude: </b> {{refugeDetail.latitude}}</p>
+                        </agm-info-window>
+                    </agm-marker>
+            </agm-map>
+                </div>
+            </div><!-- / project-info-box -->
+        </div><!-- / column -->
+
+        <div class="col-md-4">
+            <br>
+            <br>
+            <img src={{data.image}} width="300" height="400" alt="project-image" class="rounded">
+           
+        </div><!-- / column -->
+        <div class="col-md-2" style="margin-top: 100px;">
+            <h2 style="color:coral;"><b>  Où trouver {{data.nom}}? </b>  </h2> 
+        <agm-map [latitude]="37" [longitude]="10">
+            <agm-marker [latitude]="refugeDetails.latitude" [longitude]="refugeDetails.longitude">
+           
+             <agm-info-window #infoWindow>
+               <p><b>Ville: </b>{{refugeDetails.ville}}</p>
+               <p><b>Pays:</b> {{refugeDetails.pays}}</p>
+               <p><b>Téléphone: </b> {{refugeDetails.telephone}}</p>
+               <p><b>Longitude: </b> {{refugeDetails.longitude}}</p>
+               <p><b>Latitude: </b> {{refugeDetails.latitude}}</p>
+           </agm-info-window>
+            </agm-marker>
+             </agm-map>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div id="body">
+<div class="row row-cols-1 gutters-sm">
+    <div class="col mb-3">
+      <div class="card">
+        <div style="height: 70px;"></div>
+        <div class="card-body text-center">
+          <a [routerLink]="['/refuges/show-refuge/', refugeDetails.id]">  <img src="https://www.makethegrade.fr/wp-content/uploads/2020/12/conquerir-marche-niche-b2B.png" style="width:200px;width:200px;margin-top:-65px" alt="Refuge" class="img-fluid img-thumbnail rounded-circle border-0 mb-3"></a>
+          <h5 class="card-title">{{refugeDetails.ville}}</h5>
+          <p class="text-secondary mb-1">{{refugeDetails.pays}}</p>
+          <p class="text-muted font-size-sm">{{refugeDetails.telephone}}</p>
+        </div>
+    </div>
+  </div>
+  </div>
+  </div>
+<br><br>
+<form [formGroup]="updateForm" class="row g-3" (ngSubmit)="updateCommentaire()" >
+            <div class="bg-light p-2" id="addCommentaire" id="comment">
+                <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                <textarea rows="3" class="form-control ml-1 shadow-none textarea" formControlName="contenu"></textarea></div>
+                <div class="mt-2 text-right">
+                  <button class="btn btn-primary btn-sm shadow-none" type="submit">Modifier le commentaire</button>
+                </div>
+            </div>
+</form>

@@ -1,0 +1,85 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Ajouter une fiche animal </h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body" style="height: 700px; width:500px;">
+        <div class="wrap-contact100">
+          <form [formGroup]="addForm" (ngSubmit)="createFiche()">
+    
+            <div class="form-group">
+              <label class="form-label">Nom</label>
+              <input class="form-control" type="text" formControlName="nom" placeholder="Nom">
+            </div>
+   
+  
+  
+            <div class="form-group">
+              <label class="form-label">Age</label>
+                <select class="form-select" formControlName="age">
+                  <option value="0-1">0-1 mois</option>
+                  <option value="2-6">2-6 mois</option>
+                  <option value="7-12">7-12 mois</option>
+                  <option value="13-18">13-18 mois</option>
+                  <option value="19-24">19-24 mois</option>
+                  <option value="25-36">25-36 mois</option>
+                  <option value="37-48">37-48 mois</option>
+                  <option value="49-60">49-60 mois</option>
+                  <option value="61-72">61-72 mois</option>
+                  <option value="72+">72+ mois</option>
+                </select>
+              </div>
+  
+   
+            <div class="form-group">
+              <label class="form-label">Espèce</label>
+                <select class="form-select" formControlName="espece">
+                  <option value="chat">Chat</option>
+                  <option value="chien">Chien</option>
+                  <option value="lapin">Lapin</option>
+                </select>
+            </div>
+  
+            <div class="form-group">
+              <label class="form-label">Race</label>
+              <input class="form-control" type="text" formControlName="race" placeholder="Race">
+            </div>
+              
+            <div class="form-group">
+              <label class="form-label">Couleur</label>
+              <input class="form-control" type="text" formControlName="couleur" placeholder="Couleur">
+            </div>
+  
+  
+            <div class="form-group">
+              <label class="form-label">Etat</label>
+                <select class="form-select" formControlName="etat">
+                  <option value="perdu">Perdu</option>
+                  <option value="adopté">Adopté</option>
+                  <option value="à adopter">à adopter</option>
+                </select>
+              </div>
+  
+  
+            <div class="form-group">
+              <label class="form-label">Sexe</label>
+                <select class="form-select" formControlName="sexe">
+                  <option value="mâle">Mâle</option>
+                  <option value="femelle">Femelle</option>
+                </select>
+              </div>
+  
+  
+  <br>
+              <button type="submit" class="btn btn-primary">Ajouter</button>
+  
+            </form>
+          </div>
+        </div>
+   
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>

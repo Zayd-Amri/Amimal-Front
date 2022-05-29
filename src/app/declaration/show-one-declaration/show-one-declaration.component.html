@@ -1,0 +1,52 @@
+
+<div class="container">
+    <div class="row -spacing-a">
+      <div class="col-md-12">
+        <h1></h1>
+      </div>
+    </div>
+    <div class="row -spacing-a">
+      <div class="col-md-4">
+        <div class="profile-image">
+          <img src="assets/chien-chat.jpg" class="fullwidth"/>
+          <div class="edit-profile-image">
+          <span class="edit-profile-image__information">
+            <span class="fa fa-camera"></span>
+            <span class="edit-profile-image__label">
+            </span>
+          </span>
+        </div>
+        </div>
+        
+      </div>
+      <div class="col-md-8">
+        <h5>{{declaration.titre}}</h5>
+        <div class="row -spacing-b">
+          <div class="col-md-3">
+            <p class="-typo-copy">Gouvernorat</p>
+            <p class="-typo-copy">Espece</p>
+            <p class="-typo-copy">Longitude</p>
+            <p class="-typo-copy">Latitude</p>
+            <p class="-typo-copy">Description</p>
+          </div>
+          <div class="col-md-3">
+            <p class="-typo-copy -typo-copy--blue">{{declaration.gouvernorat}}</p>
+            <p class="-typo-copy -typo-copy--blue">{{declaration.type}}</p>
+            <p class="-typo-copy -typo-copy--blue">{{declaration.longitude}}</p>
+            <p class="-typo-copy -typo-copy--blue">{{declaration.latitude}}</p>
+            <p class="-typo-copy -typo-copy--blue">{{declaration.description}}</p>
+          </div>
+          <div class="col-md-3">
+            <p class="-typo-copy"><br></p>
+            <p class="-typo-copy"></p>
+            
+            <a class="card__apply"  [routerLink]="['/update-declaration', declaration.id]">
+               Edit declaration
+            </a>
+            
+          </div>
+         
+        </div>
+      </div>  
+    </div>
+  </div>

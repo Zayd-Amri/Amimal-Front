@@ -1,0 +1,49 @@
+<main>
+  <div class="container-fluid container-wrapper">
+    <div class="row h-100">
+      <div class="col-sm-6 login-section-wrapper">
+        <div class="d-flex justify-content-center">
+          <div>
+          <div class="brand-wrapper">
+            <img src="../../assets/logo.svg" alt="logo" class="logo">
+          </div>
+          <div class="login-wrapper my-auto">
+            <h1 class="login-title">S'authentifier</h1>
+            <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+              <div class="form-group mb-4">
+                <label for="email">Email</label>
+                <input name="email" formControlName="email" type="email" id="email" class="form-control"
+                  placeholder="email@example.com">
+                <span class="text-danger"
+                  *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.required">
+                  email requis
+                </span>
+                <span class="text-danger"
+                  *ngIf="registerFormControl.email.touched && registerFormControl.email.errors?.email">
+                  entrez une adresse email valide
+                </span>
+              </div>
+              <div class="form-group mb-4">
+                <label for="password">Mot de passe</label>
+                <input name="password" formControlName="password" type="password" id="password" class="form-control"
+                  placeholder="Entrez votre mot de passe">
+                <span class="text-danger"
+                  *ngIf="(registerFormControl.password.touched || submitted) && registerFormControl.password.errors?.required">
+                  mot de passe requis
+                </span>
+              </div>
+              <button class="btn btn-block login-btn w-100">S'authentifier</button>
+            </form>
+            <a href="#!" class="forgot-password-link">Mot de passe oublié?</a>
+            <p class="login-wrapper-footer-text">Pas encore membre? <a [routerLink]="['register/']"
+                class="text-reset">S'enregistrer</a></p>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="col-sm-6 px-0 d-none d-sm-block img-cover">
+
+      </div>
+    </div>
+  </div>
+</main>

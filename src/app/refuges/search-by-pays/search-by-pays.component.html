@@ -1,0 +1,22 @@
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<br>
+<br>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gutters-sm">
+  <div *ngFor="let refuge of listRefuges">
+  <div class="col mb-3">
+    <div class="card">
+      <div style="height: 70px;"></div>
+      <div class="card-body text-center">
+        <a [routerLink]="['/refuges/show-refuge/', refuge.id]">  <img src="https://www.makethegrade.fr/wp-content/uploads/2020/12/conquerir-marche-niche-b2B.png" style="width:100px;margin-top:-65px" alt="Refuge" class="img-fluid img-thumbnail rounded-circle border-0 mb-3"></a>
+        <h5 class="card-title">{{refuge.ville}}</h5>
+        <p class="text-secondary mb-1">{{refuge.pays}}</p>
+        <p class="text-muted font-size-sm">{{refuge.telephone}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<br>
